@@ -1,0 +1,190 @@
+// Definição da variável para a fonte 'Poppins'
+$font: 'Poppins', sans-serif;
+
+// Importação da fonte 'Poppins' do Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,800&display=swap');
+
+// Definição das cores como variáveis
+$purple: hsl(259, 100%, 65%);
+$light-red: hsl(0, 100%, 67%);
+$white: hsl(0, 0%, 100%);
+$off-white: hsl(0, 0%, 94%);
+$light-grey: hsl(0, 0%, 86%);
+$smoke-grey: hsl(0, 1%, 44%);
+$off-black: hsl(0, 0%, 8%);
+
+// Estilos para as diferentes variações da fonte 'Poppins'
+.font-regular {
+  font-family: $font;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font-bold {
+  font-family: $font;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.font-regular-italic {
+  font-family: $font;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.font-extrabold-italic {
+  font-family: $font;
+  font-weight: 800;
+  font-style: italic;
+}
+
+// Estilos gerais
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: $font;
+  background-color: $off-white;
+  font-size: 16px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#box {
+  width: 100%;
+  max-width: 839px;
+  padding-bottom: 80px;
+  //height: 650px;
+  background-color: $white;
+  border-radius: 20px 20px 175px 20px;
+  box-shadow: 0 0 30px rgba(113, 111, 111, 0.1);
+  ul {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #ececec;
+    padding: 45px 0;
+    margin: 10px 56px 0;
+    li {
+      display: flex;
+      flex-direction: column;
+      list-style-type: none;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-right: 30px;
+      label {
+        letter-spacing: 4px;
+        font-size: 14px;
+        color: $smoke-grey;
+        margin-bottom: 7px;
+      }
+      input {
+        color: $off-black;
+        width: 100%;
+        max-width: 120px;
+        height: 72px;
+        border-radius: 8px;
+        border: 1px solid #dddddd;
+        font-size: 32px;
+        font-weight: 800;
+        padding: 0px 20px;
+      }
+    }
+    .btn-calculate {
+      cursor: pointer;
+      position: absolute;
+      bottom: -50px;
+      right: 0px;
+      width: 96px;
+      height: 96px;
+      border: none;
+      border-radius: 100px;
+      background-image: url('../assets/images/button.svg');
+      background-size: cover;
+    }
+    .btn-calculate:hover {
+      background-image: url('../assets/images/button-active.svg');
+    }
+  }
+  #data {
+    font-size: 100px;
+    font-weight: 800;
+    font-style: italic;
+    color: $off-black;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0 0 57px;
+
+    div {
+      height: 112px;
+    }
+    .years,
+    .months,
+    .days {
+      color: $purple;
+    }
+  }
+}
+
+.attribution {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 20px;
+}
+@media (max-width: 839px) {
+  #box {
+    width: 90%;
+  }
+}
+@media (max-width: 600px) {
+  #box {
+    ul {
+      margin: 10px 25px 0;
+      li {
+        input {
+          width: 100%;
+          max-width: 90px;
+        }
+      }
+      .btn-calculate {
+        width: 67px;
+        height: 67px;
+      }
+    }
+    #data {
+      font-size: 54px;
+      div {
+        height: 70px;
+      }
+    }
+  }
+}
+
+@media (max-width: 425px) {
+  #box {
+    padding-bottom: 30px;
+    ul {
+      li {
+        margin-right: 20px;
+        input {
+          width: 40px;
+          height: 50px;
+        }
+      }
+      .btn-calculate {
+        right: 100px;
+        bottom: -38px;
+      }
+    }
+    #data {
+      padding: 40px 0 45px 25px;
+    }
+  }
+}
