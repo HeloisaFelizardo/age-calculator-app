@@ -12,27 +12,31 @@
 <body>
   <main class="container">
     <section id="box">
-      <form action="">
+      <form id="ageCalculatorForm">
         <ul>
           <li>
             <label for="day">Day</label>
-            <input type="text">
+            <input type="number" id="inDay" placeholder="DD">
+            <span id="dayError"></span>
           </li>
           <li>
             <label for="month">Month</label>
-            <input type="text">
+            <input type="number" id="inMonth" placeholder="MM">
+            <span id="monthError"></span>
           </li>
           <li>
             <label for="year">Year</label>
-            <input type="text">
+            <input type="number" id="inYear" placeholder="YYYY">
+            <span id="yearError"></span>
           </li>
-          <input type="submit" value="" class="btn-calculate">
+          <button class="btn-calculate" id="btnCalculate"></button>
         </ul>
       </form>
-      <div id="data">
-        <div><span class="years">38</span> years</div>
-        <div><span class="months">3</span> months</div>
-        <div><span class="days">26</span> days</div>
+
+      <div id="ageResult">
+        <div><span class="years">--</span> years</div>
+        <div><span class="months">--</span> months</div>
+        <div><span class="days"> --</span> days</div>
       </div>
     </section>
     <footer>
@@ -43,7 +47,7 @@
       </div>
     </footer>
   </main>
+  <script type="module" src="js/main.js"></script>
 </body>
-<script src="js/main.js"></script>
 
 </html>
