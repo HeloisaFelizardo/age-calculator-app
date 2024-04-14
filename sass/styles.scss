@@ -72,7 +72,7 @@ body {
     display: flex;
     flex-direction: row;
     border-bottom: 1px solid #ececec;
-    padding: 45px 0;
+    padding: 45px 0 80px 0;
     margin: 10px 56px 0;
 
     li.error-message {
@@ -210,6 +210,7 @@ body {
     padding-bottom: 30px;
 
     ul {
+      padding: 30px 0 60px 0;
       li {
         margin-right: 15px;
         margin-bottom: 25px;
@@ -221,12 +222,39 @@ body {
         }
       }
       .btn-calculate {
-        right: 100px;
+        right: 110px;
         bottom: -38px;
       }
+      li.error-message {
+        span {
+          bottom: -40px;
+        }
+      }
     }
+
     #ageResult {
       padding: 40px 0 45px 25px;
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  #box {
+    #ageResult {
+      font-size: 42px;
+    }
+    ul {
+      li.error-message {
+        input {
+          border: 1px solid red;
+          padding: 0;
+          text-align: center;
+          width: 70px;
+        }
+      }
+      .btn-calculate {
+        right: 90px;
+      }
     }
   }
 }

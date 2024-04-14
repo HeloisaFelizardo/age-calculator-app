@@ -32,11 +32,13 @@ btnCalculate.addEventListener('click', e => {
     outDay.textContent = age.days;
     outMonths.textContent = age.months;
     outYears.textContent = age.years;
+    btnCalculate.classList.add('btn-active');
   } else {
     // Limpar os resultados anteriores e exibir mensagens de erro
     outDay.textContent = '--';
     outMonths.textContent = '--';
     outYears.textContent = '--';
+    btnCalculate.classList.remove('btn-active');
   }
 });
 
