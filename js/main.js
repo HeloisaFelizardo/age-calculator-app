@@ -97,12 +97,6 @@ function validateData(day, month) {
 }
 
 function calculateAge(birthday, currentDate) {
-  if (currentDate < birthday) {
-    throw new Error(
-      'A data de nascimento não pode ser posterior à data atual.'
-    );
-  }
-
   let years = currentDate.getFullYear() - birthday.getFullYear();
   let months = currentDate.getMonth() - birthday.getMonth();
   let days = currentDate.getDate() - birthday.getDate();
