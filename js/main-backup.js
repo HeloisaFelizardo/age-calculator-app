@@ -113,6 +113,13 @@ function validateData(day, month) {
 
 // Função para calcular a idade com base na data de nascimento e na data atual
 function calculateAge(birthday, currentDate) {
+  // Verificar se a data de nascimento é posterior à data atual
+  if (currentDate < birthday) {
+    throw new Error(
+      'A data de nascimento não pode ser posterior à data atual.'
+    );
+  }
+
   let years = currentDate.getFullYear() - birthday.getFullYear();
   let months = currentDate.getMonth() - birthday.getMonth();
   let days = currentDate.getDate() - birthday.getDate();

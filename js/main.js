@@ -21,6 +21,7 @@ btnCalculate.addEventListener('click', e => {
 
   if (isDayValid && isMonthValid && isYearValid) {
     const birthday = new Date(inYear, inMonth - 1, inDay);
+
     const age = calculateAge(birthday, today);
     outDay.textContent = age.days;
     outMonths.textContent = age.months;
@@ -96,6 +97,12 @@ function validateData(day, month) {
 }
 
 function calculateAge(birthday, currentDate) {
+  if (currentDate < birthday) {
+    throw new Error(
+      'A data de nascimento não pode ser posterior à data atual.'
+    );
+  }
+
   let years = currentDate.getFullYear() - birthday.getFullYear();
   let months = currentDate.getMonth() - birthday.getMonth();
   let days = currentDate.getDate() - birthday.getDate();
