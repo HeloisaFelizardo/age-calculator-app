@@ -1,32 +1,40 @@
-const btnCalculate = document.querySelector('#btnCalculate');
-const errorMessage = document.querySelectorAll('#ageCalculatorForm li');
-const dayError = document.querySelector('#dayError');
-const monthError = document.querySelector('#monthError');
-const yearError = document.querySelector('#yearError');
-const outDay = document.querySelector('.days');
-const outMonths = document.querySelector('.months');
-const outYears = document.querySelector('.years');
-const today = new Date();
+// Selecionar elementos DOM necessários
+const btnCalculate = document.querySelector('#btnCalculate'); // Botão de calcular
+const errorMessage = document.querySelectorAll('#ageCalculatorForm li'); // Mensagens de erro
+const dayError = document.querySelector('#dayError'); // Mensagem de erro para o campo do dia
+const monthError = document.querySelector('#monthError'); // Mensagem de erro para o campo do mês
+const yearError = document.querySelector('#yearError'); // Mensagem de erro para o campo do ano
+const outDay = document.querySelector('.days'); // Saída para dias
+const outMonths = document.querySelector('.months'); // Saída para meses
+const outYears = document.querySelector('.years'); // Saída para anos
+const today = new Date(); // Data atual
 
+// Adicionar ouvinte de evento para o clique do botão de calcular
 btnCalculate.addEventListener('click', e => {
-  e.preventDefault();
+  e.preventDefault(); // Impedir o envio do formulário
 
+  // Obter valores dos campos de entrada
   let inDay = Number(document.querySelector('#inDay').value);
   let inMonth = Number(document.querySelector('#inMonth').value);
   let inYear = Number(document.querySelector('#inYear').value);
 
-  const isDayValid = validDay(inDay, inMonth);
-  const isMonthValid = validMonth(inMonth);
-  const isYearValid = validYear(inYear);
+  // Validar os campos de entrada
+  const isDayValid = validDay(inDay, inMonth); // Validar o dia
+  const isMonthValid = validMonth(inMonth); // Validar o mês
+  const isYearValid = validYear(inYear); // Validar o ano
 
+  // Verificar se todos os campos são válidos
   if (isDayValid && isMonthValid && isYearValid) {
+    // Criar um objeto de data de aniversário
     const birthday = new Date(inYear, inMonth - 1, inDay);
+    // Calcular a idade e exibir o resultado
     const age = calculateAge(birthday, today);
     outDay.textContent = age.days;
     outMonths.textContent = age.months;
     outYears.textContent = age.years;
     btnCalculate.classList.add('btn-active');
   } else {
+    // Limpar os resultados anteriores e exibir mensagens de erro
     outDay.textContent = '--';
     outMonths.textContent = '--';
     outYears.textContent = '--';
@@ -34,6 +42,10 @@ btnCalculate.addEventListener('click', e => {
   }
 });
 
+/* Cada função de validação retorna um valor booleano indicando se o campo é válido ou não,
+ e essa informação é usada na função do botão de calcular. */
+
+// Função para validar o dia
 function validDay(day, month) {
   if (!day) {
     errorMessage[0].classList.add('error-message');
@@ -53,6 +65,7 @@ function validDay(day, month) {
   }
 }
 
+// Função para validar o mês
 function validMonth(month) {
   if (!month) {
     errorMessage[1].classList.add('error-message');
@@ -68,6 +81,7 @@ function validMonth(month) {
   }
 }
 
+// Função para validar o ano
 function validYear(year) {
   if (!year) {
     errorMessage[2].classList.add('error-message');
@@ -83,10 +97,12 @@ function validYear(year) {
   }
 }
 
+// Função para validar a data
 function validateData(day, month) {
   let invalidDate = false;
   let days = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
+  // Verificar se o dia é válido para o mês fornecido
   for (let i = 0; i < days.length; i++) {
     if (day > days[month - 1]) {
       invalidDate = true;
@@ -95,17 +111,19 @@ function validateData(day, month) {
   return invalidDate;
 }
 
+// Função para calcular a idade com base na data de nascimento e na data atual
 function calculateAge(birthday, currentDate) {
   let years = currentDate.getFullYear() - birthday.getFullYear();
   let months = currentDate.getMonth() - birthday.getMonth();
   let days = currentDate.getDate() - birthday.getDate();
 
+  // Se o dia atual for menor que o dia de nascimento, ajusta os meses e os dias
   if (months < 0 || (months === 0 && days < 0)) {
     years--;
-    months = 11 + months;
+    months = 11 + months; // Adicionar 12 meses para obter o número correto de meses
     days =
       days +
-      new Date(currentDate.getFullYear(), currentDate.getMonth(), 0).getDate();
+      new Date(currentDate.getFullYear(), currentDate.getMonth(), 0).getDate(); // Adicionar os dias do último mês do ano anterior
   }
 
   return { years, months, days };
