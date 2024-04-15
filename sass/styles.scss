@@ -113,6 +113,9 @@ body {
         color: $smoke-grey;
         margin-bottom: 7px;
       }
+      input:focus {
+        outline: 1px solid $purple;
+      }
       input {
         color: $off-black;
         width: 100%;

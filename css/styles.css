@@ -96,6 +96,9 @@ body {
   color: hsl(0, 1%, 44%);
   margin-bottom: 7px;
 }
+#box ul li input:focus {
+  outline: 1px solid hsl(259, 100%, 65%);
+}
 #box ul li input {
   color: hsl(0, 0%, 8%);
   width: 100%;
