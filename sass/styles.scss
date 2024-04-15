@@ -247,12 +247,16 @@ body {
       font-size: 42px;
     }
     ul {
+      li {
+        input {
+          width: 70px;
+          padding: 0;
+          text-align: center;
+        }
+      }
       li.error-message {
         input {
           border: 1px solid red;
-          padding: 0;
-          text-align: center;
-          width: 70px;
         }
       }
       .btn-calculate {

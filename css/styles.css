@@ -217,11 +217,13 @@ body {
   #box #ageResult {
     font-size: 42px;
   }
-  #box ul li.error-message input {
-    border: 1px solid red;
+  #box ul li input {
+    width: 70px;
     padding: 0;
     text-align: center;
-    width: 70px;
+  }
+  #box ul li.error-message input {
+    border: 1px solid red;
   }
   #box ul .btn-calculate {
     right: 90px;
