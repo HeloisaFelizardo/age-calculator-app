@@ -71,7 +71,7 @@ body {
     position: relative;
     display: flex;
     flex-direction: row;
-    border-bottom: 1px solid #ececec;
+    border-bottom: 1px solid $light-grey;
     padding: 45px 0;
     margin: 10px 56px 0;
 
@@ -122,7 +122,7 @@ body {
         max-width: 120px;
         height: 72px;
         border-radius: 8px;
-        border: 1px solid #dddddd;
+        border: 1px solid $light-grey;
         font-size: 32px;
         font-weight: 800;
         padding: 0px 20px;
